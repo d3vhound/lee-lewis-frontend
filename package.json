@@ -20,13 +20,16 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bulma": "^0.7.1",
         "express": "^4.16.2",
         "isomorphic-unfetch": "^2.0.0",
         "next": "latest",
         "postcss-url": "^7.3.2",
-        "react": "^16.0.0"
+        "react": "^16.0.0",
+        "react-images": "^0.5.17"
     },
     "devDependencies": {
+        "@zeit/next-css": "^0.2.0",
         "@zeit/next-sass": "^0.2.0",
         "autoprefixer": "7.1.5",
         "babel-plugin-module-resolver": "^2.7.1",

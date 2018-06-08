@@ -37,7 +37,13 @@ class Post extends Component {
         return (
             <Layout>
                 <Menu menu={this.props.headerMenu} />
-                {post}
+                <div className="section">
+                <div className="container">
+                  <div className="content">
+                    {post}
+                  </div>
+                </div>
+                </div>
             </Layout>
         );
     }

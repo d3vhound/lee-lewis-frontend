@@ -1,10 +1,126 @@
-@import 'theme-colors';
-$theme-font: verdana, sans-serif;
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 
-body {
-  font: $theme-font;
-  background-color: #fff;
-  h1, h2 {
-      color: $themeColor-Dark
+$family-roboto: 'Roboto', sans-serif;
+
+$body-size: 14px;
+$body-line-height: 24px;
+$body-family: $family-roboto;
+$body-color: rgb(31, 31, 31);
+
+$title-color: $black;
+$subtitle-color: $black;
+
+$brand-green-blue: #00818C;
+
+$link: $brand-green-blue;
+
+.title {
+  font-family: $family-roboto;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+$title-weight: $weight-normal;
+$title-size: $size-3;
+$title-color: rgb(31, 31, 31);
+$title-line-height: 40px;
+
+.subtitle {
+  font-family: $family-roboto;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+$subtitle-size: $size-5;
+
+// paragraph styles
+p {
+  opacity: 0.6;
+}
+
+.mobile-title {
+  font-family: $family-roboto;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: $size-6;
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar.is-spaced {
+      padding: 1rem 2rem;
   }
 }
+
+@media screen and (min-width: 1088px) {
+  .navbar > .container .navbar-menu, .container > .navbar .navbar-menu {
+      margin-left: 3rem;
+  }
+}
+
+$footer-background-color: #efefef;
+
+.footer-link-title a {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;    
+    line-height: 25px;
+}
+
+.level-item {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer-link-title:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.footer-level {
+  max-width: 800px;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+@import '../node_modules/bulma/bulma.sass';
+
+// Fix nav hover
+a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.is-active {
+    background-color: transparent;
+    color: $brand-green-blue;
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
+      background-color: transparent;
+  }
+}
+
+// change background color on button text link
+.button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
+    background-color: transparent;
+    color: $brand-green-blue;
+}
+
+@media (min-width: 1088px) {
+  .placeholder-navbar {
+    min-height: 7rem;
+  }
+}
+
+.navbar-item img {
+    max-height: 2rem;
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar-item img {
+    max-height: 4rem;
+  }
+}
+
+// change to margin left 0 for additional items on mobile nav
+// .navbar-burger {
+//     height: auto;
+//     margin-left: 0; 
+// }
+
+
+@import "./projects"

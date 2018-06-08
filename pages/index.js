@@ -74,13 +74,23 @@ class Index extends Component {
         return (
             <Layout>
                 <Menu menu={this.props.headerMenu} />
-                <h1>Home</h1>
-                <h2>Posts</h2>
-                {posts}
-                <h2>Pages</h2>
-                {pages}
-                <h2>Projects</h2>
-                {projects}
+                <div className="section">
+                  <div className="container">
+                    <h1 className="title">Home</h1>
+                    <h2 className="subtitle">Posts</h2>
+                    <div className="content">
+                    {posts}
+                    </div>
+                    <h2 className="subtitle">Pages</h2>
+                    <div className="content">
+                    {pages}
+                    </div>
+                    <h2 className="subtitle">Projects</h2>
+                    <div className="content">
+                    {projects}
+                    </div>
+                  </div>
+                </div>
             </Layout>
         );
     }

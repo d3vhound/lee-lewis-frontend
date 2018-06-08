@@ -15,6 +15,8 @@ class Header extends Component {
         return (
             <div>
                 <Head>
+                    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,700' rel='stylesheet' type='text/css' />    
+                   
                     <link rel="stylesheet" href="/_next/static/style.css" />
                     <meta
                         name="viewport"
