@@ -1,0 +1,1 @@
+export const Config = { apiUrl: 'http://206.189.170.184'}
