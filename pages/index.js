@@ -5,7 +5,6 @@ import Link from "next/link";
 import PageWrapper from "../components/PageWrapper.js";
 import Menu from "../components/Menu.js";
 import { Config } from "../config.js";
-import "../static/styles.scss"
 
 const headerImageStyle = {
     marginTop: 50,

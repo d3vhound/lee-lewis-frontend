@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "node server.js",
         "build": "next build",
-        "start": "next start",
+        "start": "NODE_ENV=production node server.js",
         "docker:build": "docker build -t frontend .",
         "docker:clean": "docker rm -f frontend || true",
         "docker:run": "docker run -p 3000:3000 --name frontend frontend",
@@ -21,11 +21,13 @@
     "license": "ISC",
     "dependencies": {
         "bulma": "^0.7.1",
+        "classnames": "^2.2.6",
         "express": "^4.16.2",
         "isomorphic-unfetch": "^2.0.0",
         "next": "latest",
         "postcss-url": "^7.3.2",
         "react": "^16.0.0",
+        "react-image-lightbox": "^5.0.0",
         "react-images": "^0.5.17"
     },
     "devDependencies": {

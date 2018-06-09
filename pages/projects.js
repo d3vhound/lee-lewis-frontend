@@ -5,7 +5,9 @@ import Error from "next/error";
 import PageWrapper from "../components/PageWrapper.js";
 import ProjectHero from "../components/ProjectHero.js";
 import Menu from "../components/Menu.js";
+import classNames from 'classnames'
 import { Config } from "../config.js";
+import Modal from '../components/Modal'
 
 class Project extends Component {
   static async getInitialProps(context) {
@@ -17,7 +19,32 @@ class Project extends Component {
     return { project };
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showModal: false
+    }
+  }
+
   render() {
+
+    const showModal = (id) => {
+      const modal = document.getElementById('modal' + id)
+      // let target = modal.dataset.target
+      console.log(modal)
+      modal.classList.add('is-active')
+    }
+
+    const closeModal = (id) => {
+      const modal = document.getElementById('modal' + id)
+      modal.classList.remove('is-active')
+    }
+
+    let modalStyles = classNames({
+      'modal': true,
+      'is-active': this.state.showModal
+    })
 
     const project = this.props.project.map((project, index) => {
       return (
@@ -50,14 +77,38 @@ class Project extends Component {
                 <div className="column">
                 <div className="right">
                   <div className="gallery">
+                  
                     <div className="gallery-row">
-                        <div href="#" className="width-50 image bg-transfer" style={{backgroundImage: `url(${project.acf.image1.url})`}}>
-                        </div>
-                        <div className="width-50 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image2.url})` }}></div>
+                        <Modal id="modal1" close={() => closeModal(1)} classes={modalStyles} lbImage={project.acf.image1.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(1)
+                          }} href="#" data-target="modal1" className="width-50 image gallery-image bg-transfer" style={{backgroundImage: `url(${project.acf.image1.url})`}}>
+                          </a>
+                        </Modal>
+                        <Modal id="modal2" close={() => closeModal(2)} classes={modalStyles} lbImage={project.acf.image2.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(2)
+                          }} href="#" data-target="modal2" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image2.url})` }}>
+                          </a>
+                        </Modal>
                     </div>
                     <div className="gallery-row">
-                      <div className="width-50 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image3.url})` }}></div>
-                      <div className="width-50 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image4.url})` }}></div>
+                        <Modal id="modal3" close={() => closeModal(3)} classes={modalStyles} lbImage={project.acf.image3.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(3)
+                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image3.url})` }}>
+                          </a>
+                        </Modal>
+                        <Modal id="modal4" close={() => closeModal(4)} classes={modalStyles} lbImage={project.acf.image4.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(4)
+                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image4.url})` }}>
+                          </a>
+                        </Modal>
                     </div>
                     <div className="video">
                       <div className="fluid-width-video-wrapper" style={{paddingTop: '56.2%'}}>
@@ -65,9 +116,27 @@ class Project extends Component {
                       </div>
                     </div>
                     <div className="gallery-row">
-                      <div className="width-33 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image5.url})` }}></div>
-                      <div className="width-33 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image6.url})` }}></div>
-                      <div className="width-33 image bg-transfer" style={{ backgroundImage: `url(${project.acf.image7.url})` }}></div>
+                        <Modal id="modal5" close={() => closeModal(5)} classes={modalStyles} lbImage={project.acf.image5.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(5)
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image5.url})` }}>
+                          </a>
+                        </Modal>
+                        <Modal id="modal6" close={() => closeModal(6)} classes={modalStyles} lbImage={project.acf.image6.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(6)
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image6.url})` }}>
+                          </a>
+                        </Modal>
+                        <Modal id="modal7" close={() => closeModal(7)} classes={modalStyles} lbImage={project.acf.image7.url}>
+                          <a onClick={e => {
+                            e.preventDefault()
+                            showModal(7)
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image7.url})` }}>
+                          </a>
+                        </Modal>
                     </div>
                   </div>
                 </div>
