@@ -39,7 +39,7 @@ const Footer = () => (
       <div className="columns" style={{marginTop: '3rem'}}>
         <div className="column is-6">
           <img src="https://res.cloudinary.com/devhound/image/upload/v1528454307/lee-lewis-logo_urbjri.png" style={{ height: '30px' }} />
-          <div class="separator"></div>
+          <div className="separator"></div>
         </div>
         <div className="column is-3">
           <p className="footer-link-title">
@@ -47,7 +47,7 @@ const Footer = () => (
               <a>Home</a>
             </Link>
           </p>
-          <div class="separator"></div>
+          <div className="separator"></div>
           <p>
             <Link href="/">
               <a>Home</a>
@@ -75,7 +75,7 @@ const Footer = () => (
               <a>Contact</a>
             </Link>
           </p>
-          <div class="separator"></div>
+          <div className="separator"></div>
           <p>LUBBOCK: 806.797.8400</p>
           <p>DALLAS: 972.818.0700</p>
           <p>AUSTIN: 512.369.3921</p>

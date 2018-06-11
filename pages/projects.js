@@ -8,6 +8,7 @@ import Menu from "../components/Menu.js";
 import classNames from 'classnames'
 import { Config } from "../config.js";
 import Modal from '../components/Modal'
+import MoreProjects from '../components/MoreProjects'
 
 class Project extends Component {
   static async getInitialProps(context) {
@@ -31,9 +32,23 @@ class Project extends Component {
 
     const showModal = (id) => {
       const modal = document.getElementById('modal' + id)
-      // let target = modal.dataset.target
-      console.log(modal)
+      let modalNode = document.querySelector(`#modal` + id)
+      let modalNodeItem = modalNode.querySelectorAll('img')
+      let modalElem = modalNodeItem.item(0)
+
+      let modalImage = modalElem.dataset.src
+
+      console.log(modalImage)
+
+      // console.log(imageUrl)
+
+      if (!modalElem.getAttribute('src')) {
+        modalElem.setAttribute('src', `${modalImage}`)
+      }
+
+
       modal.classList.add('is-active')
+      
     }
 
     const closeModal = (id) => {
@@ -43,7 +58,9 @@ class Project extends Component {
 
     let modalStyles = classNames({
       'modal': true,
-      'is-active': this.state.showModal
+      'is-active': this.state.showModal,
+      'animated': true,
+      'fadeIn': true,
     })
 
     const project = this.props.project.map((project, index) => {
@@ -72,7 +89,7 @@ class Project extends Component {
                     </dl>
                     <div className="separator"></div>
                   </div>
-                <p>{project.acf.description}</p>
+                <p className="p-text">{project.acf.description}</p>
               </div>
                 <div className="column">
                 <div className="right">
@@ -83,14 +100,14 @@ class Project extends Component {
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(1)
-                          }} href="#" data-target="modal1" className="width-50 image gallery-image bg-transfer" style={{backgroundImage: `url(${project.acf.image1.url})`}}>
+                          }} href="#" data-target="modal1" className="width-50 image gallery-image bg-transfer" style={{backgroundImage: `url(${project.acf.image1.sizes.medium_large})`}}>
                           </a>
                         </Modal>
                         <Modal id="modal2" close={() => closeModal(2)} classes={modalStyles} lbImage={project.acf.image2.url}>
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(2)
-                          }} href="#" data-target="modal2" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image2.url})` }}>
+                          }} href="#" data-target="modal2" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image2.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                     </div>
@@ -99,14 +116,14 @@ class Project extends Component {
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(3)
-                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image3.url})` }}>
+                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image3.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                         <Modal id="modal4" close={() => closeModal(4)} classes={modalStyles} lbImage={project.acf.image4.url}>
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(4)
-                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image4.url})` }}>
+                          }} href="#" className="width-50 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image4.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                     </div>
@@ -120,21 +137,21 @@ class Project extends Component {
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(5)
-                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image5.url})` }}>
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image5.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                         <Modal id="modal6" close={() => closeModal(6)} classes={modalStyles} lbImage={project.acf.image6.url}>
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(6)
-                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image6.url})` }}>
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image6.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                         <Modal id="modal7" close={() => closeModal(7)} classes={modalStyles} lbImage={project.acf.image7.url}>
                           <a onClick={e => {
                             e.preventDefault()
                             showModal(7)
-                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image7.url})` }}>
+                          }} href="#" className="width-33 image gallery-image bg-transfer" style={{ backgroundImage: `url(${project.acf.image7.sizes.medium_large})` }}>
                           </a>
                         </Modal>
                     </div>
@@ -152,6 +169,7 @@ class Project extends Component {
       <Layout>
         <Menu menu={this.props.headerMenu} />
         {project}
+        <MoreProjects />
       </Layout>
     );
   }

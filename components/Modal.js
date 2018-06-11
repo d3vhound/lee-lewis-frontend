@@ -5,9 +5,9 @@ export default (props) => (
     <div id={props.id} className={props.classes}>
     <div className="modal-background"></div>
     <div className="modal-content">
-      <p className="image">
-        <img src={props.lbImage} alt="" />
-      </p>
+      <div className="image modal-image">
+        <img className="modal-src" id={props.id} data-src={props.lbImage} alt="" />
+      </div>
     </div>
       <button onClick={props.close} className="modal-close is-large" aria-label="close"></button>
   </div>

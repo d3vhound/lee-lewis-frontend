@@ -1,6 +1,16 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
 @import './react-image-lightbox';
+@import 'animate.css';
+
+.banner-demo {
+  background: #00818C;
+  color: white;
+  display: flex;
+  place-content: center center;
+  height: 3em;
+  width: 100%;
+}
 
 $family-roboto: 'Roboto', sans-serif;
 
@@ -34,7 +44,7 @@ $title-line-height: 40px;
 $subtitle-size: $size-5;
 
 // paragraph styles
-p {
+.p-text {
   opacity: 0.6;
 }
 
@@ -82,7 +92,7 @@ $footer-background-color: #efefef;
 }
 
 @import '../node_modules/bulma/bulma.sass';
-
+@import "./projects";
 // Fix nav hover
 a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.is-active {
     background-color: transparent;
@@ -123,5 +133,88 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
 //     margin-left: 0; 
 // }
 
+.desktop-level .level-item a, .mobile-level .level-item a {
+  color: white;
+  font-weight: 400;
+  text-transform: none;
+}
 
-@import "./projects"
+@media screen and (min-width: 769px), print {
+  .level-left .level-item:not(:last-child), .level-right .level-item:not(:last-child) {
+      margin-right: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #banner {
+    display: none
+  }
+}
+
+.mobile-level {
+  display: none
+}
+
+@media (max-width: 1087px) {
+  .mobile-level {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.desktop-level {
+  display: none;
+}
+
+@media (min-width: 1088px) {
+  .desktop-level {
+    display: flex
+  }
+}
+
+.nav-middle {
+  position: fixed;
+  width: 100%;
+  transition: all .3s ease-in;
+  top: 0;
+}
+
+@media (min-width: 1200px) {
+  .nav-middle {
+    // height: 150px;
+  }
+}
+
+.nav-top {
+  transition: all .3s ease-in;
+  position: relative;
+  top: 0px;
+}
+
+@media (min-width: 1200px) {
+  .nav-top {
+    height: 150px;
+  }
+}
+  
+@media (min-width: 1200px) {
+  .small-image {
+    transition: all .4s ease-in-out;
+    min-height: 2.5rem!important;
+    max-height: 2.5rem!important;
+  }
+}
+
+.navbar {
+  min-height: 3.5rem;
+}
+
+.Navwrapper {
+  height: 49px;
+  width: 100%;
+}
+@media (min-width: 1200px) { 
+  .Navwrapper {
+    height: 150px
+  }
+}

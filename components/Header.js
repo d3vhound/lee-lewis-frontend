@@ -16,8 +16,7 @@ class Header extends Component {
             <div>
                 <Head>
                     <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,700' rel='stylesheet' type='text/css' />    
-                   
-                    <link rel="stylesheet" href="/_next/static/style.css" />
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
                     <meta
                         name="viewport"
                         content="width=device-width, initial-scale=1"
